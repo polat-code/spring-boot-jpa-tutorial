@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
@@ -35,7 +34,7 @@ public class Teacher {
             nullable = false
     )
     private String lastName;
-
+/*
     @OneToMany(
             cascade = CascadeType.ALL
 
@@ -44,4 +43,6 @@ public class Teacher {
             referencedColumnName = "teacherId"
     )
     private List<Course> courses;
+
+ */
 }
