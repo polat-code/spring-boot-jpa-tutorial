@@ -1,6 +1,7 @@
 package com.example.springbootjpatutorial.repository;
 
 import com.example.springbootjpatutorial.entity.Course;
+import com.example.springbootjpatutorial.entity.Student;
 import com.example.springbootjpatutorial.entity.Teacher;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,5 +83,28 @@ class CourseRepositoryTest {
 
         System.out.println("courses = " + courses);
         
+    }
+    @Test
+    public void saveCourseWithStudentAndTeacher() {
+        Teacher teacher = Teacher.builder()
+                .firstName("Alian")
+                .lastName("Johnsan")
+                .build();
+
+        Student student = Student.builder()
+                .firstName("Abishek")
+                .secondName("Singh")
+                .emailId("abhishek@gmail.com")
+                .build();
+
+        Course course = Course.builder()
+                .title("AI")
+                .credit(12)
+                .teacher(teacher)
+                .build();
+
+        course.addStudents(student);
+        courseRepository.save(course);
+
     }
 }
